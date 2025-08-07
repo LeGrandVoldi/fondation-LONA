@@ -21,8 +21,123 @@
   --border-radius: 12px;
   --border-radius-lg: 20px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-fast: all 0.15s ease;
+  --transition-fast: all 0.3s ease;
+  --bac : linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #f0f9ff 100%);
 }
+
+
+/* ----------- BOUTON FLOTTANT -------------- */
+.theme-switcher {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.theme-option {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.theme-option:hover {
+    transform: scale(1.1);
+    border-color: #ccc;
+}
+
+/* ----------- THÈMES -------------- */
+body.theme-rouge {
+    --primary-color: #8B0000;
+    --secondary-color: #FFD700;
+    --accent-color: #8B0000;
+    --background-color: #fff8f4;
+    --text-color: #2c0000;
+    --button-text: #ffffff;
+    --gradient-primary: linear-gradient(135deg, #8B0000 0%, #FFD700 100%);
+    --gradient-secondary: linear-gradient(135deg, #FF6042 0%, #FFD700 100%);
+    --bac : linear-gradient(135deg, #f8fafc 0%, #ffe4e1 30%, #fff3cd 60%, #f0f9ff 100%);
+    
+}
+
+body.theme-bleu {
+    --primary-color: #1a365d;
+    --secondary-color: #2563eb;
+    --accent-color: #3b82f6;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --light-blue: #e0f2fe;
+    --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2563eb 100%);
+    --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --white: #ffffff;
+    --light-gray: #f8fafc;
+    --border-color: #e5e7eb;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --border-radius-lg: 20px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.3s ease;
+    --bac : linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #f0f9ff 100%);
+}
+
+/* ----------- APPLICATION DES COULEURS -------------- */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+a, .nav-link, .section-title, .brand-name {
+    color: var(--primary-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--button-text);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #000;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: var(--button-text);
+}
+
+/* Modifie aussi la navbar, footer, etc. si nécessaire */
+.navbar,
+.footer {
+    background-color: var(--primary-color);
+    color: var(--button-text);
+}
+
+.footer a,
+.navbar a {
+    color: var(--button-text);
+}
+
 
 /* ===== Global Styles ===== */
 * {
@@ -75,6 +190,12 @@ h1, h2, h3, h4, h5, h6 {
 .section-divider.light {
   background: rgba(255, 255, 255, 0.8);
 }
+
+
+
+
+
+
 
 /* ===== Navigation ===== */
 .navbar {
@@ -157,7 +278,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #f0f9ff 100%);
+  background: var(--bac);
   z-index: -1;
 }
 

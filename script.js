@@ -528,3 +528,39 @@ document.addEventListener('DOMContentLoaded', () => {
     
     images.forEach(img => imageObserver.observe(img));
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+        const body = document.body;
+        const logoImages = document.querySelectorAll('img[src*="logo"]');
+
+        const redBtn = document.getElementById('themeRedBtn');
+        const blueBtn = document.getElementById('themeBlueBtn');
+
+        const switchTheme = (themeName, logoSrc) => {
+            // Retirer tous les thèmes
+            body.classList.remove('theme-rouge', 'theme-bleu');
+            // Appliquer le thème choisi
+            body.classList.add(themeName);
+
+            // Changer les logos
+            logoImages.forEach(img => {
+                img.src = logoSrc;
+            });
+        };
+
+        // Gestion des clics sur les logos
+        redBtn.addEventListener('click', () => {
+            switchTheme('theme-rouge', 'public/logo-2-AP.png');
+            redBtn.src ="public/logo-2-AP.png"
+            blueBtn.src ="public/logo-1-AP.png"
+        });
+
+        blueBtn.addEventListener('click', () => {
+            switchTheme('theme-bleu', 'public/logo-1-AP.png');
+            redBtn.src ="public/logo-2-AP.png"
+            blueBtn.src ="public/logo-1-AP.png"
+        });
+
+        // Initialiser avec le thème rouge
+        
+    });

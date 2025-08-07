@@ -18,6 +18,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Sélecteur de thème flottant -->
+    <div id="themeSwitcher" class="theme-switcher">
+        <img src="public/logo-1-AP.png" alt="Thème Bleu" id="themeBlueBtn" class="theme-option">
+        <img src="public/logo-2-AP.png" alt="Thème Rouge" id="themeRedBtn" class="theme-option">
+    </div>
+
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
         <div class="container">
@@ -263,55 +271,220 @@
         </div>
     </section>
 
-    <!-- Contest Section -->
-    <section id="concours" class="section-padding bg-gradient">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center mb-5">
-                    <h2 class="section-title text-white reveal-text">Concours de Logo</h2>
-                    <div class="section-divider light"></div>
-                    <p class="section-subtitle text-white">
-                        Un appel à la créativité congolaise pour donner vie à l'identité visuelle d'une fondation dédiée à l'éducation et à la jeunesse
-                    </p>
-                </div>
+     <!-- Ajoute ceci dans ton <head> pour Bootstrap et un peu de style global -->
+<style>
+  /* Animation d'entrée des cartes */
+  .card {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+  }
+  .card.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Effet hover sur la carte */
+  .card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.15);
+  }
+
+  /* Style du modal de couleur */
+  #colorModal .modal-content {
+    border-radius: 1rem;
+  }
+  #colorModal .color-swatch {
+    width: 80px;
+    height: 80px;
+    border-radius: 0.5rem;
+    margin: auto;
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.2);
+  }
+
+  /* Bouton Télécharger en texte blanc */
+  .btn-download {
+    color: #fff !important;
+  }
+</style>
+
+<!-- Section galerie mise à jour avec précision arrière-plan et texte blanc -->
+<section id="galerie" class="section-padding bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center mb-5">
+        <h2 class="section-title">Galerie des Logos</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">
+          Découvrez les logos proposés avec leurs palettes de couleurs.
+        </p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <!-- Logo 1 (avec arrière-plan) -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <div class="ratio ratio-1x1 mb-3"
+                 style="background-image: url('public/logo-1-AP.png'); background-size: contain;
+                        background-repeat: no-repeat; background-position: center;">
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="contest-card">
-                        <div class="contest-header">
-                            <i class="fas fa-trophy contest-icon"></i>
-                            <h3>Participez à notre Concours</h3>
-                        </div>
-                        <div class="contest-content">
-                            <p class="lead">
-                                Nous recherchons un logo qui capture l'essence de la Fondation LONA : 
-                                l'éducation, la jeunesse, l'espoir et l'avenir du Congo.
-                            </p>
-                            <div class="contest-criteria">
-                                <h5>Critères de conception :</h5>
-                                <ul>
-                                    <li>Représenter la jeunesse dynamique congolaise</li>
-                                    <li>Symboliser l'élévation par l'éducation</li>
-                                    <li>Incarner la promesse d'avenir</li>
-                                    <li>Refléter les valeurs de "Ko lona" (semer/planter)</li>
-                                </ul>
-                            </div>
-                            <div class="contest-actions">
-                                <button class="btn btn-light btn-lg me-3">
-                                    <i class="fas fa-download me-2"></i>
-                                    Télécharger le Brief
-                                </button>
-                                <button class="btn btn-outline-light btn-lg">
-                                    <i class="fas fa-upload me-2"></i>
-                                    Soumettre ma Création
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <h5 class="card-title">Logo 1</h5>
+            <p class="text-muted small">Avec arrière-plan</p>
+            <div class="d-flex justify-content-center gap-2 my-2">
+              <span class="rounded-circle color-picker" data-code="#043564"
+                    style="width: 20px; height: 20px; background-color: #043564; cursor: pointer;"></span>
+              <span class="rounded-circle color-picker" data-code="#22669F"
+                    style="width: 20px; height: 20px; background-color: #22669F; cursor: pointer;"></span>
+              <span class="rounded-circle color-picker" data-code="#F6F2EC"
+                    style="width: 20px; height: 20px; background-color: #F6F2EC; cursor: pointer;"></span>
             </div>
+            <a href="public/logo-1-AP.png"
+               download="logo-1-AP.png"
+               class="btn btn-primary btn-sm mt-2 btn-download">
+              Télécharger
+            </a>
+          </div>
         </div>
-    </section>
+      </div>
+
+      <!-- Logo 2 (sans arrière-plan) -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <div class="ratio ratio-1x1 mb-3"
+                 style="background-image: url('public/logo-1-SAP.png'); background-size: contain;
+                        background-repeat: no-repeat; background-position: center;">
+            </div>
+            <h5 class="card-title">Logo 2</h5>
+            <p class="text-muted small">Sans arrière-plan</p>
+            <div class="d-flex justify-content-center gap-2 my-2">
+              <span class="rounded-circle color-picker" data-code="#043564"
+                    style="width: 20px; height: 20px; background-color: #043564; cursor: pointer;"></span>
+              <span class="rounded-circle color-picker" data-code="#22669F"
+                    style="width: 20px; height: 20px; background-color: #22669F; cursor: pointer;"></span>
+
+            </div>
+            <a href="public/logo-1-SAP.png"
+               download="logo-1-SAP.png"
+               class="btn btn-primary btn-sm mt-2 btn-download">
+              Télécharger
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logo 3 (avec arrière-plan) -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <div class="ratio ratio-1x1 mb-3"
+                 style="background-image: url('public/logo-2-AP.png'); background-size: contain;
+                        background-repeat: no-repeat; background-position: center;">
+            </div>
+            <h5 class="card-title">Logo 3</h5>
+            <p class="text-muted small">Avec arrière-plan</p>
+            <div class="d-flex justify-content-center gap-2 my-2">
+              <span class="rounded-circle color-picker" data-code="#349032"
+                    style="width: 20px; height: 20px; background-color: #349032; cursor: pointer;"></span>
+              <span class="rounded-circle color-picker" data-code="#D3960E"
+                    style="width: 20px; height: 20px; background-color: #D3960E; cursor: pointer;"></span>
+              <span class="rounded-circle color-picker" data-code="#F9CD68"
+                    style="width: 20px; height: 20px; background-color: #F9CD68; cursor: pointer;"></span>
+              <span class="rounded-circle color-picker" data-code="#911425"
+                    style="width: 20px; height: 20px; background-color: #911425; cursor: pointer;"></span>
+              <span class="rounded-circle color-picker" data-code="#F6F2EC"
+                    style="width: 20px; height: 20px; background-color: #F6F2EC; cursor: pointer;"></span>
+            </div>
+            <a href="public/logo-2-AP.png"
+               download="logo-2-AP.png"
+               class="btn btn-primary btn-sm mt-2 btn-download">
+              Télécharger
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logo 4 (sans arrière-plan) -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <div class="ratio ratio-1x1 mb-3"
+                 style="background-image: url('public/logo-2-SAP.png'); background-size: contain;
+                        background-repeat: no-repeat; background-position: center;">
+            </div>
+            <h5 class="card-title">Logo 4</h5>
+            <p class="text-muted small">Sans arrière-plan</p>
+            <div class="d-flex justify-content-center gap-2 my-2">
+              <span class="rounded-circle color-picker" data-code="#349032"
+                    style="width: 20px; height: 20px; background-color: #349032; cursor: pointer;"></span>
+              <span class="rounded-circle color-picker" data-code="#D3960E"
+                    style="width: 20px; height: 20px; background-color: #D3960E; cursor: pointer;"></span>
+              <span class="rounded-circle color-picker" data-code="#F9CD68"
+                    style="width: 20px; height: 20px; background-color: #F9CD68; cursor: pointer;"></span>
+              <span class="rounded-circle color-picker" data-code="#911425"
+                    style="width: 20px; height: 20px; background-color: #911425; cursor: pointer;"></span>
+            </div>
+            <a href="public/logo-2-SAP.png"
+               download="logo-2-SAP.png"
+               class="btn btn-primary btn-sm mt-2 btn-download">
+              Télécharger
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal unique pour afficher la couleur et son code -->
+<div class="modal fade" id="colorModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content text-center p-3">
+      <div class="color-swatch mb-3"></div>
+      <h5 class="modal-title">Code Couleur</h5>
+      <p class="color-code fs-5"></p>
+      <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">
+        Fermer
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts Bootstrap et interaction JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Animation d'apparition au scroll
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    cards.forEach(c => observer.observe(c));
+
+    // Ouverture du modal de couleur
+    const modalEl = document.getElementById('colorModal');
+    const modal = new bootstrap.Modal(modalEl);
+    const swatch = modalEl.querySelector('.color-swatch');
+    const codeText = modalEl.querySelector('.color-code');
+
+    document.querySelectorAll('.color-picker').forEach(span => {
+      span.addEventListener('click', () => {
+        const color = span.getAttribute('data-code');
+        swatch.style.backgroundColor = color;
+        codeText.textContent = color;
+        modal.show();
+      });
+    });
+  });
+</script>
+
+
 
     <!-- Contact Section -->
     <section id="contact" class="section-padding">
@@ -332,7 +505,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <h5>Adresse</h5>
-                        <p>Kinshasa, République Démocratique du Congo</p>
+                        <p>Kinshasa, RD Congo</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
