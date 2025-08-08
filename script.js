@@ -104,14 +104,15 @@ function initNavbarScroll() {
 // ===== Smooth Scrolling =====
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
-    
+    const navbarCollapseEl = document.querySelector('.navbar-collapse');
+
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             
             const targetId = link.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-            
+
             if (targetSection) {
                 const offsetTop = targetSection.offsetTop - 80;
                 
@@ -119,17 +120,20 @@ function initSmoothScrolling() {
                     top: offsetTop,
                     behavior: 'smooth'
                 });
-                
-                // Close mobile navbar if open
-                const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse.classList.contains('show')) {
-                    const navbarToggler = document.querySelector('.navbar-toggler');
-                    navbarToggler.click();
+
+                // ✅ Fermer le menu mobile avec Bootstrap Collapse
+                if (window.innerWidth < 992 && navbarCollapseEl.classList.contains('show')) {
+                    const collapseInstance = bootstrap.Collapse.getInstance(navbarCollapseEl);
+                    if (collapseInstance) {
+                        collapseInstance.hide();
+                    }
                 }
             }
         });
     });
 }
+
+
 
 // ===== Parallax Effects =====
 function initParallaxEffects() {

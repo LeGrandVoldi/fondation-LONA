@@ -18,31 +18,42 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* 1. Déclaration des keyframes pour l’effet d’inclinaison */
-@keyframes tilt {
-  0%   { transform: translateY(0) rotate(0deg); }
-  25%  { transform: translateY(-2px) rotate(5deg); }
-  50%  { transform: translateY(0) rotate(0deg); }
-  75%  { transform: translateY(-2px) rotate(-5deg); }
-  100% { transform: translateY(0) rotate(0deg); }
-}
+        @keyframes tilt {
+        0%   { transform: translateY(0) rotate(0deg); }
+        25%  { transform: translateY(-2px) rotate(5deg); }
+        50%  { transform: translateY(0) rotate(0deg); }
+        75%  { transform: translateY(-2px) rotate(-5deg); }
+        100% { transform: translateY(0) rotate(0deg); }
+        }
 
-/* 2. Classe pour déclencher l’animation */
-.animate-tilt {
-  animation: tilt 1.5s ease-in-out infinite;
-}
+        /* 2. Classe pour déclencher l’animation */
+        .animate-tilt {
+        animation: tilt 1.5s ease-in-out infinite;
+        }
+
+         /* Ajoute un espace pour compenser la hauteur de la navbar fixée en haut */
+        .hero-section {
+            padding-top: 40px; /* Ajustable selon la hauteur de ta navbar */
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding-top: 120px; /* Un peu plus sur mobile si la navbar se replie */
+            }
+        }
 
     </style>
 </head>
 <body>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-  // Récupère l’élément
-  const themeSwitcher = document.getElementById('themeSwitcher');
-  // Petite temporisation si besoin (là c'est immédiat)
-  setTimeout(() => {
-    themeSwitcher.classList.add('animate-tilt');
-  }, 200); // 200ms après le chargement, pour un effet plus fluide
-});
+        // Récupère l’élément
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        // Petite temporisation si besoin (là c'est immédiat)
+        setTimeout(() => {
+            themeSwitcher.classList.add('animate-tilt');
+        }, 200); // 200ms après le chargement, pour un effet plus fluide
+        });
 
     </script>
 
@@ -94,10 +105,9 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-background"></div>
+    <section id="home" class="hero-section"> 
+        <div class="hero-background"><br></div>
         <div class="container">
-            <br>
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6 text-center text-lg-start">
                     <div class="hero-content">
